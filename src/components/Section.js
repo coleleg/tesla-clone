@@ -1,25 +1,30 @@
 import React from 'react'
 import styled from 'styled-components';
+import Fade from 'react-reveal/Fade';
 
 function Section( { title, description, backgroundImg, leftBtnTxt, rightBtnTxt }) {
     return (
         <Wrap bgImage={backgroundImg}>
-            <ItemText>
-                <h1>{title}</h1>
-                <p> {description} </p>
-            </ItemText>
+            <Fade bottom>
+                <ItemText>
+                    <h1>{title}</h1>
+                    <p> {description} </p>
+                </ItemText>
+            </Fade>
             {/* //this makes it so justify-content: space-between doesn't push the left/right buttons to the middle */}
             <Buttons> 
-                <ButtonGroup>
-                    <LeftButton>
-                        {leftBtnTxt}
-                    </LeftButton>
-                    {/* makes it so the right button will only display if the text exists...centers "Shop Now" in the last Section component on Home */}
-                    { rightBtnTxt &&
-                        <RightButton>
-                        {rightBtnTxt}
-                    </RightButton> }
-                </ButtonGroup>
+                <Fade bottom>
+                    <ButtonGroup>
+                        <LeftButton>
+                            {leftBtnTxt}
+                        </LeftButton>
+                        {/* makes it so the right button will only display if the text exists...centers "Shop Now" in the last Section component on Home */}
+                        { rightBtnTxt &&
+                            <RightButton>
+                            {rightBtnTxt}
+                        </RightButton> }
+                    </ButtonGroup>
+                </Fade>
                 <DownArrow src ='/images/down-arrow.svg' />
             </Buttons>
         </Wrap>
